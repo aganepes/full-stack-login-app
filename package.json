@@ -1,0 +1,31 @@
+{
+  "name": "react-express-login",
+  "version": "1.0.0",
+  "description": "This is  full stack project with typescript",
+  "main": ".",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm dev",
+    "build": "cd frontend && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aganepes/full-stack-web-app"
+  },
+  "keywords": [
+    "Node.js",
+    "Express.js",
+    "React.js",
+    "Prisma"
+  ],
+  "author": "Ahmedow Aganepes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aganepesAI/https---github.com-aganepes-full-stack-web-app/issues"
+  },
+  "homepage": "https://github.com/aganepesAI/https---github.com-aganepes-full-stack-web-app#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
