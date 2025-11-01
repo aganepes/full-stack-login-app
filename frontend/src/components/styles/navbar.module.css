@@ -1,0 +1,31 @@
+.navbar{
+    /* position: fixed; */
+    /* top: 0; */
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--secondary-color);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar_link{
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-segoe);
+    font-weight: 500;
+    padding: .5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+.navbar_link:hover{
+    background-color: var(--primary-color);
+    color:var(--text-color);
+}

@@ -5,7 +5,7 @@ body:has(.register_container) {
     max-width: 100%;
     width: 400px;
     margin: 0 auto;
-    margin-top:2rem;
+    margin-top:1rem;
     padding: 20px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
@@ -15,13 +15,16 @@ body:has(.register_container) {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    transition: all .4s ease-in-out;
 }
 .register_title{
+    margin-right: 1rem;
     font-family: var(--font-segoe);
     color: var(--text-color);
 }
 hr{
   width: 100%;
+  margin-top:1rem;
   border: 1px solid var(--border-color);
   margin-bottom: 1rem;
 }
@@ -34,14 +37,56 @@ hr{
     padding-top: 0;
 }
 .name_container, .email_container, .password_container, .confirm_password_container{
+    width: 100%;
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
     justify-content:stretch;
     align-items: flex-end;
 }
-.name_container, .email_container, .password_container, .confirm_password_container label{
-    flex: 1;
+.name_container input, .email_container input, .password_container input, .confirm_password_container input{
+    width: 100%;
+    padding: .8rem 1rem .6rem .3rem;
+    border:none;
+    border-bottom:2px solid var(--input-border-color);
+    outline: none;
+    font-size: .9rem;
+    background-color: transparent;
+}
+.name_container input::placeholder, .email_container input::placeholder, .password_container input::placeholder, .confirm_password_container input::placeholder{
+    color: var(--input-border-color);
     font-family: var(--font-segoe);
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.submit_button{
+    margin-top: 2rem;
+    padding:.7rem;
+    border:none;
+    border-radius: 20px;
+    border:1px solid var(--button-border-color);
     color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: var(--font-segoe);
+    transition: background-color .3s ease;
+    text-transform: capitalize;
+    font-weight: bold;
+    transition: all .3s ease;
+}
+.submit_button:hover{
+    background-color: var(--input-border-color);
+}
+.login_redirect{
+    font-size: .9rem;
+    display: flex;
+    gap:.5rem;
+    color: var(--text-color);
+}
+.login_redirect_link{
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 600;
 }

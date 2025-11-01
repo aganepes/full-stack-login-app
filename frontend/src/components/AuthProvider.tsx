@@ -3,7 +3,6 @@ import type { ApiError, ApiResponse, User } from "../types/user";
 import { AuthContext } from '../contexts/AuthContext';
 
 const API_URL_AUTH:string = "http://localhost:5000/api/auth";
-console.log(import.meta.env)
 
 export const AuthProvider = ({ children }: { children?: ReactNode }) => {
     const [user, setUser] = useState<User|null>(null);

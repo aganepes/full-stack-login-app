@@ -1,7 +1,8 @@
-import { Link,useNavigate,Outlet } from 'react-router-dom';
+import { useNavigate,Outlet, NavLink } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthHook';
 import type { JSX } from 'react';
 import type { ApiError } from '../types/user';
+import styles from './styles/navbar.module.css';
 
 function Navbar():JSX.Element {
 
@@ -19,24 +20,45 @@ function Navbar():JSX.Element {
     }
   
   }
-
+  const activeStyle = {
+    backgroundColor: 'var(--primary-color)',
+    color: 'var(--text-color)'
+  };
   return (
     <>
-    <nav>
-      <Link to="/">Home page</Link> |
+    <nav className={styles.navbar}>
+      <NavLink 
+        to="/" 
+        className={styles.navbar_link} 
+        style={({isActive})=> isActive ? activeStyle : {}}
+        > Home page </NavLink> 
       {!user ? (
         <>
-          <Link to="/login">Login</Link> |
-          <Link to="/register">Register</Link>  
+          <NavLink 
+            to="/login" 
+            className={styles.navbar_link} 
+            style={({isActive})=> isActive ? activeStyle : {}}
+            > Login </NavLink> 
+          <NavLink 
+            to="/register" 
+            className={styles.navbar_link} 
+            style={({isActive})=> isActive ? activeStyle : {}}
+            > Register </NavLink>
         </>
       ):(
         <>
-          <Link to="/dashboard">Panel</Link> |
-          <button onClick={hadleLogout}>Logout ({user.name})</button>
+          <NavLink 
+            to="/dashboard" 
+            className={styles.navbar_link} 
+            style={({isActive})=> isActive ? activeStyle : {}}
+            > Panel </NavLink> 
+          <button 
+            onClick={hadleLogout} 
+            className={styles.navbar_link}
+            > Logout ({user.name})</button>
         </>
       )}
       </nav>
-      <hr/>
       <Outlet/>
       </>
   )
