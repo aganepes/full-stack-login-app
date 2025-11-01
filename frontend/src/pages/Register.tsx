@@ -1,6 +1,8 @@
 import React,{useRef, useState, type JSX} from 'react';
 import { useAuth } from '../hooks/AuthHook';
 import { Link, useNavigate } from 'react-router-dom';
+import type { ApiError, ApiResponse } from '../types/user';
+import styles from '../pages/styles/register.module.css';
 
 function RegisterPage():JSX.Element {
     const [email,setEmail] = useState<string>('');
@@ -22,74 +24,86 @@ function RegisterPage():JSX.Element {
         
         if(confirmPassword!=password){
             setError("Confirm password and password do not match");
-            confirmPasswordInput.current?.focus();
+            (confirmPasswordInput.current as HTMLInputElement).focus();
             return ;
         }
 
         const isRegister = await register({name,email,password});
 
         if(isRegister.success){
-            alert(isRegister.message);
+            alert((isRegister as ApiResponse).message);
             navigate('/');
         }else{
-            setError(isRegister.error);
+            setError((isRegister as ApiError).error);
         }
         
         setLoading(false);
     }
+
     return (
-        <div>
-            <h2>Register</h2>
-            <hr/>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor='name'>Name:</label>
-                    <input 
+        <div className={styles.register_container}>
+            <h2 className={styles.register_title}>Register</h2>
+            <hr />
+            <form onSubmit={handleSubmit} className={styles.register_form}>
+                <div className={styles.name_container}>
+                    <input
                         id='name'
                         type="text"
                         value={name}
+                        placeholder='Name'
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
-                <div>
-                    <label htmlFor='email'>Email:</label>
+                <div className={styles.email_container}>
                     <input 
                         id='email'
                         type="email"
                         value={email}
+                        placeholder='Email'
                         required
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-                <div>
-                    <label htmlFor='password'>Password:</label>
+                <div className={styles.email_container}>
+                    <input 
+                        id='email'
+                        type="email"
+                        value={email}
+                        placeholder='Email'
+                        required
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className={styles.password_container}>
                     <input 
                         id="password"
                         type="password"
                         value={password}
+                        placeholder='Password'
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor='confirm-password'>Confirm Password:</label>
+                <div className={styles.confirm_password_container}>
                     <input 
                         id="confirm-password"
                         type="password"
                         value={confirmPassword}
+                        placeholder='Confirm Password'
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         ref={confirmPasswordInput}
                         required
                     />
                 </div>
-                <button type="submit">Sign Up</button>
+                <button type="submit" className={styles.submit_button}>Sign Up</button>
             </form>
-            <div>
-                <p style={{display:'inline',padding:'10px'}}>Have me Account?</p>
-                <Link to="/login" style={{display:'inline'}}>Login Here</Link>
+            <div className={styles.login_redirect}>
+                <p className={styles.login_redirect_text}>Have me Account?</p>
+                <Link to="/login" className={styles.login_redirect_link}> Login Here</Link>
             </div>
-            {error && <p style={{color: 'red'}}>{error}</p>}
-            {loading && <p style={{color: 'green'}}>Loading ...</p>}
+            {error && <p className={styles.error_message}>{error}</p>}
+            {loading && <p className={styles.loading_message}> Loading ...</p>
+            }
         </div>
     )
 }
