@@ -7,6 +7,7 @@ body[data-theme='light']{
   --primary-color: #4EBCFF;
   --secondary-color: #2F95FA;
   --third-color: #097FF5;
+  --login-description-color:#6e6e6e;
   --placeholder-color: #E0E0E2;
   --text-color:black;
   --link-color:#61A3DD;
@@ -19,7 +20,9 @@ body[data-theme='light']{
   --button-bg-color:#F0F0F0;
   --error-color:#B00020;
   --shadow-color:#0000001a;
-  --border-color:#858585;
+  --border-color:#cacaca;
+  --font-segoe:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-georgia:Georgia, 'Times New Roman', Times, serif;
 }
 
 body[data-theme='dark'] {

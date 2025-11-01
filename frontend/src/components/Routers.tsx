@@ -3,7 +3,7 @@ import HomePage from '../pages/Home';
 import LoginPage from '../pages/Login';
 import RegisterPage from '../pages/Register';
 import DashboardPage from '../pages/Dashboard';
-import NotFoundPage from '../pages/NotFoundPage';
+import NotFoundPage from '../pages/NotFound';
 import Navbar from './Navbar';
 
 function Routers() {

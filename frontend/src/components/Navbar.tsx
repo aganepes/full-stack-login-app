@@ -1,6 +1,7 @@
 import { Link,useNavigate,Outlet } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthHook';
 import type { JSX } from 'react';
+import type { ApiError } from '../types/user';
 
 function Navbar():JSX.Element {
 
@@ -12,7 +13,7 @@ function Navbar():JSX.Element {
     const isLogout = await logout();
 
     if(!isLogout.success ){
-      alert(isLogout?.error && 'An error occurred. Please try again.');
+      alert((isLogout as ApiError)?.error && 'An error occurred. Please try again.');
     }else{
       navigate('/');
     }

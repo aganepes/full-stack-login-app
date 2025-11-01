@@ -59,18 +59,19 @@ function LoginPage():JSX.Element {
                     />
                 </div>
                 <div className={styles.checkbox_container}>
-                    
-                    <input 
-                        type="checkbox"
-                        id="check"
-                        required
-                        hidden
-                    />
-                    <div className={styles.check_box_element}></div>
-                    <label htmlFor="check" className={styles.checkbox_label}>Keep me signed in</label>
+                    <div className={styles.switch_container}>
+                        <input 
+                            type="checkbox"
+                            id="check"
+                            required
+                            hidden
+                        />
+                        <div className={styles.check_box_element}></div>
+                        <label htmlFor="check" className={styles.checkbox_label}>Keep me signed in</label>
+                    </div>
                     <Link to="/register" className={styles.register_link}>Already a member?</Link>
                 </div>
-                <button type="submit" className={styles.submit_button}>Login</button>
+                <button type="submit" className={styles.submit_button}>subscribe</button>
             </form>
             {error && <p className={styles.error_message}>{error}</p>}
             {loading && <p className={styles.loading_message}>Loading...</p>}

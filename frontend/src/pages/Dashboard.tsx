@@ -49,7 +49,7 @@ function App():JSX.Element {
           <strong>Email:</strong>{user.email}
         </p>
          <p className="read-the-docs">
-          <strong>Create account:</strong>{Date(user?.createAt).split('GMT+0500')[0]}
+          <strong>Create account:</strong>{Date(user.createAt).split('GMT+0500')[0]}
         </p>
         </>
       )}
