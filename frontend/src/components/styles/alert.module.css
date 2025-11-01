@@ -1,0 +1,38 @@
+.alert{
+    padding:.4rem;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 20px 10px var(--shadow-color);
+    color: #178b17;
+    border: 1px solid var(--button-border-color);
+    border-radius: 15px;
+    font-family: var(--font-segoe);
+    font-size: .7rem;
+    font-weight: bold;
+    position: absolute;
+    top:3rem;
+    left:50%;
+    transform: translate(-50%,0);
+    animation: notShow 500ms;
+}
+@keyframes notShow{
+    10%{
+        opacity: .8;
+        top:2.5rem;
+    }
+    40%{
+        opacity: .5;
+        top:2rem;
+    }
+    60%{
+        opacity: .4;
+        top:1.5rem;
+    }
+    80%{
+        opacity: .2;
+        top:1rem;
+    }
+    100%{
+        opacity: 0;
+        top:-1rem;
+    }
+}

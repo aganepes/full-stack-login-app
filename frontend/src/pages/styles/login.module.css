@@ -57,8 +57,9 @@
     justify-content: space-between;
 }
 .check_box_element{
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    border:1px solid var(--border-color);
     position: relative;
 }
 .checkbox_container input:checked ~ .check_box_element::after{
