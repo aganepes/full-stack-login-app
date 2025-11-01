@@ -1,6 +1,8 @@
 import React,{useEffect, useState, type JSX} from 'react';
 import { useAuth } from '../hooks/AuthHook';
 import { Link, useNavigate } from 'react-router-dom';
+import type { ApiError, ApiResponse } from '../types/user';
+import styles from './styles/login.module.css';
 
 function LoginPage():JSX.Element {
     const [loading, setLoading] = useState<boolean>(false);
@@ -15,7 +17,7 @@ function LoginPage():JSX.Element {
         if(user){
             navigate('/');
         }
-    },[user])
+    },[user,navigate]);
 
     const handleSubmit = async (e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
@@ -24,50 +26,54 @@ function LoginPage():JSX.Element {
         
         const isLogin = await login({email,password});
         if(isLogin.success){
-            alert(isLogin.message);
+            alert((isLogin as ApiResponse).message);
             navigate('/');
         }else{
-            setError(isLogin.error && 'An error occurred. Please try again.');
+            setError((isLogin as ApiError).error && 'An error occurred. Please try again.');
         }
         setLoading(false);
     }
     return (
-        <div>
-            <h2>Login</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur obcaecati quas facere, iste nesciunt illo. Asperiores, quae esse ipsam iste necessitatibus, repellat quidem officiis quam corporis reiciendis ducimus fuga laudantium veniam debitis, assumenda dolorem blanditiis minus quis hic. </p>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email:</label>
+        <div className={styles.login_container}>
+            <h2 className={styles.login_title}>Login Account</h2>
+            <p className={styles.login_description}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur obcaecati quas facere, iste nesciunt illo. Asperiores, quae esse ipsam </p>
+            <form onSubmit={handleSubmit} className={styles.login_form}>
+                <div className={styles.email_container}>
                     <input 
                         type="email"
                         value={email}
-                        placeholder='Email Id'
+                        placeholder='Email ID'
                         onChange={(e) => setEmail(e.target.value)}
+                        autoComplete='off'
+                        autoFocus
                     />
                 </div>
-                <div>
-                    <label>Password:</label>
+                <div className={styles.password_container}>
                     <input 
                         type="password"
                         value={password}
                         placeholder='Password'
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        autoComplete='off'
                     />
                 </div>
-                <div style={{display:"inline"}}>
+                <div className={styles.checkbox_container}>
+                    
                     <input 
                         type="checkbox"
                         id="check"
                         required
+                        hidden
                     />
-                    <label htmlFor="check">Keep me signed in</label>
-                    <Link to="/register">Already a member?</Link>
+                    <div className={styles.check_box_element}></div>
+                    <label htmlFor="check" className={styles.checkbox_label}>Keep me signed in</label>
+                    <Link to="/register" className={styles.register_link}>Already a member?</Link>
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" className={styles.submit_button}>Login</button>
             </form>
-            {error && <p style={{color: 'red'}}>{error}</p>}
-            {loading && <p style={{color: 'green'}}>Loading...</p>}
+            {error && <p className={styles.error_message}>{error}</p>}
+            {loading && <p className={styles.loading_message}>Loading...</p>}
         </div>
     )
 }

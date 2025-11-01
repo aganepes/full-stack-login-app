@@ -1,0 +1,78 @@
+.login_container{
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--shadow-color);
+    background-color: var(--bg-color);
+}
+
+.login_title {
+    text-align: center;
+    color: var(--third-color);
+    margin-bottom: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.login_description {
+    text-align: center;
+    color: var(--placeholder-color);
+    margin-bottom: 20px;
+    line-height: .9em;
+    user-select: none;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.login_form {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    width:100%;
+    padding:1rem;
+}
+.email_container, .password_container, .checkbox_container {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+.email_container input, .password_container input{
+    border:none;
+    outline: none;
+    background-color: var(--placeholder-color);
+    padding:.5em;
+    padding-left: .7rem;
+    border-left: 5px solid var(--third-color);
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    
+} 
+.email_container input::placeholder, .password_container input::placeholder{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: .9rem;
+}
+.checkbox_container{
+    display: flex;
+    align-items: flex-end;
+}
+.check_box_element{
+    width: 1.2rem;
+    height: 1.2rem;
+    position: relative;
+}
+.checkbox_container input:checked ~ .check_box_element::after{
+    content: "";
+    position: absolute;
+    width: .5rem;
+    height: .9rem;
+    border-right: 2px solid var(--third-color);
+    border-bottom: 2px solid var(--third-color);
+    border-radius: 2px;
+    bottom:3px;
+    left:5px;
+    transform: rotate(45deg);
+
+}
+
+.checkbox_label{
+    user-select: none;
+}

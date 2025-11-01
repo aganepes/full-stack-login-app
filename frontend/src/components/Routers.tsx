@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
-import LoginPage from '../pages/LoginPage';
-import RegisterPage from '../pages/RegisterPage';
-import DashboardPage from '../pages/DashboardPage';
+import HomePage from '../pages/Home';
+import LoginPage from '../pages/Login';
+import RegisterPage from '../pages/Register';
+import DashboardPage from '../pages/Dashboard';
 import NotFoundPage from '../pages/NotFoundPage';
 import Navbar from './Navbar';
 

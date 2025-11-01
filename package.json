@@ -4,9 +4,9 @@
   "description": "This is  full stack project with typescript",
   "main": ".",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
     "server": "cd backend && npm run dev",
-    "client": "cd frontend && npm dev",
+    "client": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build"
   },
   "repository": {
